@@ -10,6 +10,7 @@ include mk/build.mk
 
 OBJDIR=bin
 SRCDIR=src
+BAREMETAL_REPO=https://raw.githubusercontent.com/ReturnInfinity/BareMetal/master
 
 all: apps
 
@@ -97,11 +98,11 @@ $(OBJDIR)/3d-model-loader.app: objdir $(SRCDIR)/3d-model-loader/3d-model-loader.
 	$(LD) $(LDFLAGS) -T $(SRCDIR)/c.ld -o $(OBJDIR)/color-plasma.app $(OBJDIR)/crt0.o $(OBJDIR)/libBareMetal.o $(OBJDIR)/3d-model-loader.o
  
 $(SRCDIR)/libBareMetal.asm:
-	curl -s -o $(SRCDIR)/libBareMetal.asm https://raw.githubusercontent.com/ReturnInfinity/BareMetal/master/api/libBareMetal.asm
+	curl -s -o $(SRCDIR)/libBareMetal.asm $(BAREMETAL_REPO)/api/libBareMetal.asm
 
 $(SRCDIR)/libBareMetal.c:
-	curl -s -o $(SRCDIR)/libBareMetal.c https://raw.githubusercontent.com/ReturnInfinity/BareMetal/master/api/libBareMetal.c
-	curl -s -o $(SRCDIR)/libBareMetal.h https://raw.githubusercontent.com/ReturnInfinity/BareMetal/master/api/libBareMetal.h
+	curl -s -o $(SRCDIR)/libBareMetal.c $(BAREMETAL_REPO)/api/libBareMetal.c
+	curl -s -o $(SRCDIR)/libBareMetal.h $(BAREMETAL_REPO)/api/libBareMetal.h
 
 clean:
 	rm -rf $(OBJDIR)
