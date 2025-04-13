@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ '*' ]
   pull_request:
-    branches: [ master ]
+    branches: [ '*' ]
 jobs:
   build-macos:
     runs-on: macos-latest
@@ -14,17 +14,14 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: nasm
-      run: brew install nasm 
+    - name: install packages
+      run: brew install nasm curl
 
     - name: x86_64-elf-gcc
       run: brew install x86_64-elf-gcc
 
-    - name: setup
-      run: ./setup.sh
-
     - name: build
-      run: ./build.sh
+      run: make all
 
   build-ubuntu:
     runs-on: ubuntu-latest
@@ -34,12 +31,9 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: install nasm
-      run: sudo apt install nasm
-
-    - name: setup
-      run: ./setup.sh
+    - name: install packages
+      run: sudo apt install nasm curl
 
     - name: build
-      run: ./build.sh
+      run: make all
 
