@@ -95,7 +95,7 @@ $(OBJDIR)/color-plasma.app: objdir $(SRCDIR)/color-plasma.c
 
 $(OBJDIR)/3d-model-loader.app: objdir $(SRCDIR)/3d-model-loader/3d-model-loader.c
 	$(CC) $(CFLAGS) -o $(OBJDIR)/3d-model-loader.o $(SRCDIR)/3d-model-loader.c
-	$(LD) $(LDFLAGS) -T $(SRCDIR)/c.ld -o $(OBJDIR)/color-plasma.app $(OBJDIR)/crt0.o $(OBJDIR)/libBareMetal.o $(OBJDIR)/3d-model-loader.o
+	$(LD) $(LDFLAGS) -T $(SRCDIR)/c.ld -o $(OBJDIR)/3d-model-loader.app $(OBJDIR)/crt0.o $(OBJDIR)/libBareMetal.o $(OBJDIR)/3d-model-loader.o
  
 $(SRCDIR)/libBareMetal.asm:
 	curl -s -o $(SRCDIR)/libBareMetal.asm $(BAREMETAL_REPO)/api/libBareMetal.asm
