@@ -1,4 +1,11 @@
 
+# =============================================================================
+# BareMetal -- a 64-bit OS written in Assembly for x86-64 systems
+# Copyright (C) 2025 Tom Everett -- see LICENSE.TXT
+#
+# Version 1.0
+# =============================================================================
+
 CC=gcc
 LD=ld
 CFLAGS=-c -m64 -nostdlib -nostartfiles -nodefaultlibs -ffreestanding -falign-functions=16 -fomit-frame-pointer -mno-red-zone -fno-builtin
