@@ -8,7 +8,7 @@
 
 CC=gcc
 LD=ld
-CFLAGS=-c -m64 -nostdlib -nostartfiles -nodefaultlibs -ffreestanding -falign-functions=16 -fomit-frame-pointer -mno-red-zone -fno-builtin
+CFLAGS=-c -m64 -nostdlib -nostartfiles -nodefaultlibs -ffreestanding -fomit-frame-pointer -mno-red-zone -fno-builtin -mcmodel=large
 LDFLAGS=
 NASM=nasm
 
